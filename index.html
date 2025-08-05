@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>KodamaHQ - Consulenza Strategica per la Sostenibilità IT</title>
+    <meta name="description" content="KodamaHQ offre consulenza strategica per la Sostenibilità IT. Scopri il nostro piano in 4 fasi per ridurre l'impronta carbonica e creare valore responsabile.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-title { font-family: 'Cinzel Decorative', serif; }
+        :root {
+            --brand-green: #65a30d; /* Verde primario dal logo */
+            --brand-green-dark: #3f6212; /* Verde scuro per hover e testo */
+            --brand-green-light: #d9f99d; /* Verde chiaro per sfondi */
+        }
+        .gradient-text {
+            background: linear-gradient(to right, var(--brand-green), var(--brand-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-card::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: -1.5rem;
+            left: -1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--brand-green-light);
+            color: var(--brand-green-dark);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 4px solid #f9fafb; /* Colore di sfondo del body */
+            box-shadow: 0 0 0 1px #e2e8f0;
+        }
+        body { counter-reset: step-counter; }
+        
+        /* Stili per il gioco */
+        .unit-card { transition: all 0.3s ease; }
+        .unit-card.convinced { border-color: var(--brand-green); background-color: #f7fee7; }
+        .argument-btn { transition: all 0.2s ease; }
+        .argument-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .argument-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .progress-bar-fill { transition: width 0.5s ease-in-out; background-color: var(--brand-green); }
+
+        /* Stile per header fisso e menu */
+        #main-nav.scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        /* Stile per menu mobile no-js */
+        .mobile-menu-details summary::-webkit-details-marker { display: none; }
+        .mobile-menu-details > summary { list-style: none; }
+        
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+    <noscript>
+        <div class="bg-yellow-300 text-center p-2">Per un'esperienza interattiva completa, ti consigliamo di abilitare JavaScript.</div>
+    </noscript>
+
+    <!-- Header & Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="https://i.ibb.co/6nZ0bJd/kodama-logo-circle.png" alt="Logo KodamaHQ" class="h-10 w-10">
+                    <span class="text-2xl font-bold text-gray-800 font-title">KodamaHQ</span>
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#process" class="text-gray-600 hover:text-green-700 font-semibold">Il Metodo</a>
+                    <a href="#game-section" class="text-gray-600 hover:text-green-700 font-semibold">Gioco</a>
+                    <a href="#maturity-matrix" class="text-gray-600 hover:text-green-700 font-semibold">Maturità</a>
+                    <a href="#assessment" class="text-gray-600 hover:text-green-700 font-semibold">Assessment</a>
+                </div>
+                <!-- Mobile Menu (No-JS friendly) -->
+                <details class="md:hidden mobile-menu-details">
+                    <summary class="list-none cursor-pointer">
+                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </summary>
+                    <div class="absolute left-0 right-0 mt-2 bg-white shadow-lg rounded-b-lg">
+                        <a href="#process" class="block py-3 px-6 text-base text-gray-700 hover:bg-gray-100">Il Metodo</a>
+                        <a href="#game-section" class="block py-3 px-6 text-base text-gray-700 hover:bg-gray-100">Gioco</a>
+                        <a href="#maturity-matrix" class="block py-3 px-6 text-base text-gray-700 hover:bg-gray-100">Maturità</a>
+                        <a href="#assessment" class="block py-3 px-6 text-base text-gray-700 hover:bg-gray-100">Assessment</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="flex-shrink-0">
+                    <img src="https://i.ibb.co/6nZ0bJd/kodama-logo-circle.png" alt="Logo KodamaHQ con tre spiriti della natura che usano dispositivi digitali" class="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-7xl font-bold gradient-text font-title">KodamaHQ</h1>
+                    <p class="mt-4 text-xl text-gray-600 max-w-xl">Riportare l'equilibrio nell'ecosistema digitale.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sezione Introduttiva -->
+    <section class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">Perché la Sostenibilità IT è Fondamentale, Ora.</h2>
+            <div class="text-left space-y-4 text-gray-600 text-lg">
+                <p>
+                    Nel nostro mondo digitale, ogni click, ogni riga di codice e ogni server ha un impatto fisico. La tecnologia che alimenta il nostro progresso consuma enormi quantità di energia e genera montagne di rifiuti elettronici (e-waste). Questo ecosistema, se non gestito con consapevolezza, crea uno squilibrio con conseguenze reali per il pianeta, le persone e il business.
+                </p>
+                <p>
+                    La <strong>Sostenibilità IT</strong> è l'evoluzione della tecnologia. Significa progettare e gestire sistemi digitali in armonia con i tre pilastri della sostenibilità: <strong>Pianeta, Persone e Profitto</strong>. Non è solo una questione etica, ma una necessità strategica per affrontare la conformità con normative come la **CSRD**, trasformare i costi energetici in un vantaggio competitivo e attrarre talenti sensibili ai valori ESG.
+                </p>
+                <p class="font-semibold text-gray-800 pt-4">
+                    Per guidare questa trasformazione, abbiamo sviluppato un piano operativo pragmatico e misurabile. Un percorso in 4 fasi per analizzare, ottimizzare e integrare la sostenibilità nel DNA della vostra tecnologia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 space-y-12">
+        <!-- Sezione Piano Operativo -->
+        <section id="process">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-20 font-title">Il Nostro Piano Operativo in 4 Fasi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                <!-- Fase 1 -->
+                <div class="relative bg-white p-6 rounded-xl shadow-lg border-t-4 border-lime-500 step-card">
+                    <div class="flex justify-center mb-4"><svg class="w-12 h-12 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 3v3m6-3v3m-3-6v3m0 0l-3 1.5m3-1.5l3 1.5M9 7l3-1.5M15 7l-3-1.5m0 0l-3 1.5m3-1.5l3 1.5"></path></svg></div>
+                    <h3 class="text-xl font-bold text-lime-800 mb-3 text-center">Fase 1: Mappatura Strategica</h3>
+                    <p class="text-gray-600 text-sm">Utilizzando il <strong>Technology Carbon Standard</strong>, creiamo una mappa completa del vostro IT estate per focalizzare gli sforzi dove contano di più.</p>
+                    <p class="text-xs font-semibold text-gray-500 mt-3">RISULTATI CHIAVE: Mappa chiara dell'impronta, riduzione dell'incertezza strategica.</p>
+                </div>
+                <!-- Fase 2 -->
+                <div class="relative bg-white p-6 rounded-xl shadow-lg border-t-4 border-lime-500 step-card">
+                    <div class="flex justify-center mb-4"><svg class="w-12 h-12 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-lime-800 mb-3 text-center">Fase 2: Assessment di Maturità</h3>
+                    <p class="text-gray-600 text-sm">Con la <strong>Sustainable Software Maturity Matrix</strong>, valutiamo il vostro livello attuale. La nostra Gap Analysis rivela le opportunità concrete di miglioramento.</p>
+                    <p class="text-xs font-semibold text-gray-500 mt-3">RISULTATI CHIAVE: Profilo di maturità, identificazione delle lacune, baseline misurabile.</p>
+                </div>
+                <!-- Fase 3 -->
+                <div class="relative bg-white p-6 rounded-xl shadow-lg border-t-4 border-lime-500 step-card">
+                    <div class="flex justify-center mb-4"><svg class="w-12 h-12 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20V4m0 16h6m-6 0H3.586a1 1 0 01-.707-1.707l1.414-1.414a1 1 0 00.707-1.707V11.586a1 1 0 011.707-.707l1.414 1.414a1 1 0 001.707-.707V4m6 16h3.586a1 1 0 00.707-1.707l-1.414-1.414a1 1 0 01-.707-1.707V11.586a1 1 0 00-1.707-.707l-1.414 1.414a1 1 0 01-1.707-.707V4"></path></svg></div>
+                    <h3 class="text-xl font-bold text-lime-800 mb-3 text-center">Fase 3: Roadmap Esecutiva</h3>
+                    <p class="text-gray-600 text-sm">Traduciamo l'analisi in un piano d'azione. Definiamo iniziative prioritizzate, OKR misurabili e una timeline chiara, ispirandoci al framework <strong>SOFT</strong>.</p>
+                     <p class="text-xs font-semibold text-gray-500 mt-3">RISULTATI CHIAVE: Piano d'azione prioritizzato, business case per le iniziative.</p>
+                </div>
+                <!-- Fase 4 -->
+                <div class="relative bg-white p-6 rounded-xl shadow-lg border-t-4 border-lime-500 step-card">
+                    <div class="flex justify-center mb-4"><svg class="w-12 h-12 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-lime-800 mb-3 text-center">Fase 4: Implementazione e Cultura</h3>
+                    <p class="text-gray-600 text-sm">Partiamo con progetti pilota per dimostrare il valore. L'obiettivo finale è integrare la sostenibilità nella vostra cultura aziendale e nei processi quotidiani.</p>
+                    <p class="text-xs font-semibold text-gray-500 mt-3">RISULTATI CHIAVE: Successo del pilota dimostrato, team formati, processi aggiornati.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Gioco di Ruolo -->
+        <section id="game-section">
+            <div class="bg-white rounded-xl shadow-xl p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-title">Mettiti alla Prova: Il Dilemma del Datacenter</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">La sostenibilità è un gioco di equilibri. Prova la nostra simulazione interattiva per scoprire le sfide nel guidare un team eterogeneo verso una decisione strategica e sostenibile.</p>
+                
+                <div id="game-container" class="w-full max-w-6xl mx-auto bg-gray-50 rounded-2xl shadow-inner p-6 md:p-10 border">
+                    <!-- Schermata Iniziale del Gioco -->
+                    <div id="start-screen">
+                        <h1 class="text-3xl font-bold text-center text-gray-800">Datacenter Dilemma</h1>
+                        <p class="text-center text-gray-600 mt-4 max-w-2xl mx-auto">Vesti i panni del Consulente di Sostenibilità. Il tuo obiettivo: guidare 5 business unit a prendere la decisione più sostenibile. **Hai 2 tentativi per ogni dilemma.**</p>
+                        <div class="text-center mt-8">
+                            <button id="start-game-btn" class="bg-lime-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-lime-700 transition-colors text-xl">Inizia la Simulazione</button>
+                        </div>
+                    </div>
+                    <!-- Schermata di Gioco -->
+                    <div id="game-screen" class="hidden">
+                        <header class="mb-6">
+                            <h2 id="dilemma-title" class="text-2xl md:text-3xl font-bold text-lime-800 text-center"></h2>
+                            <p id="dilemma-description" class="text-center text-gray-600 mt-2"></p>
+                            <div class="flex justify-between items-center mt-4">
+                                <div>
+                                    <p class="text-lg font-semibold">Tentativi Rimasti: <span id="attempts-left" class="text-red-600 font-bold"></span></p>
+                                    <p class="text-lg font-semibold mt-1">Punteggio: <span id="current-score" class="text-lime-600 font-bold">0</span></p>
+                                </div>
+                                <div class="w-1/3">
+                                    <p class="text-sm font-semibold text-center mb-1">Progresso Sostenibilità</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-4">
+                                        <div id="progress-bar" class="bg-lime-500 h-4 rounded-full progress-bar-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <div id="units-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"></div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-700 mb-4 text-center">Scegli il tuo argomento</h3>
+                            <div id="arguments-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        </div>
+                        <div id="feedback-message" class="mt-6 text-center font-semibold p-3 rounded-lg hidden"></div>
+                        <div id="next-dilemma-container" class="text-center mt-8 hidden">
+                            <button id="next-dilemma-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg"></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Schermata Finale del Gioco -->
+                    <div id="end-screen" class="hidden text-center">
+                         <h2 id="end-title" class="text-4xl font-bold text-gray-800 font-title"></h2>
+                         <p id="end-score" class="text-2xl mt-4 font-semibold text-lime-700"></p>
+                         <p id="end-summary" class="text-lg mt-4 text-gray-600 max-w-3xl mx-auto"></p>
+                         <div id="dilemma-summary-container" class="mt-8 text-left max-w-3xl mx-auto space-y-4"></div>
+                         <div class="mt-8">
+                            <p class="font-semibold mb-3">Condividi il tuo risultato!</p>
+                            <div class="flex justify-center space-x-4">
+                                <a id="share-twitter" href="#" target="_blank" class="bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-black transition-colors">Twitter (X)</a>
+                                <a id="share-linkedin" href="#" target="_blank" class="bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-800 transition-colors">LinkedIn</a>
+                                <a id="share-email" href="#" class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">Email</a>
+                            </div>
+                         </div>
+                         <div class="mt-8">
+                            <button id="restart-game-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition-colors text-xl">Rigioca per migliorare</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sezione Maturity Matrix -->
+        <section id="maturity-matrix">
+             <div class="container mx-auto px-6 text-center max-w-4xl py-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">Misurare per Migliorare: Dal Seme alla Foresta Antica</h2>
+                <div class="text-left space-y-4 text-gray-600 text-lg">
+                    <p>
+                        Intraprendere un percorso di sostenibilità senza una mappa è come navigare senza bussola. La <strong>Sustainable Software Maturity Matrix</strong> è lo strumento che usiamo per darvi questa bussola. Non è un giudizio, ma una fotografia chiara della vostra posizione attuale, un punto di partenza per una crescita consapevole.
+                    </p>
+                    <p>
+                        Ispirandoci alla crescita di una foresta, la matrice valuta il vostro percorso su una scala di maturità progressiva:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-lime-500">
+                            <h4 class="font-bold text-lime-800">🌱 Dal Seme (Aspiring & Aware)</h4>
+                            <p class="text-sm">L'organizzazione sta piantando i primi semi. La consapevolezza sta nascendo e si compiono le prime azioni, spesso manuali e isolate.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-lime-500">
+                            <h4 class="font-bold text-lime-800">🌳 All'Albero (Acting & Awesome)</h4>
+                            <p class="text-sm">Le radici sono solide. Le pratiche sostenibili sono definite, integrate nei processi e sempre più automatizzate. L'impatto è misurabile e visibile.</p>
+                        </div>
+                    </div>
+                     <p class="font-semibold text-gray-800 pt-4">
+                        Il nostro assessment (Fase 2) vi aiuta a capire a che punto del percorso vi trovate, per costruire una roadmap che vi porti a diventare una foresta rigogliosa e resiliente (Inspiring).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Questionario -->
+        <section id="assessment">
+            <div class="bg-white rounded-xl shadow-xl p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-title">Scopri la Tua Maturità Sostenibile</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">Ora che hai la mappa, fai il primo passo. Rispondi a queste 5 domande per ottenere una prima valutazione del tuo posizionamento e identificare le prossime azioni strategiche.</p>
+                
+                <form id="quizForm" class="max-w-3xl mx-auto">
+                    <!-- Domande del quiz qui... -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-gray-800 mb-3">1. Come descriveresti la consapevolezza della tua organizzazione riguardo all'impronta di carbonio della tecnologia?</label>
+                        <select name="q1" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <option value="1">Sconosciuta, non è un tema che misuriamo.</option>
+                            <option value="2">Siamo consapevoli dei costi energetici generali (es. bollette).</option>
+                            <option value="3">Abbiamo report di base (es. dai provider cloud).</option>
+                            <option value="4">Misuriamo attivamente e abbiamo report dettagliati per aree specifiche.</option>
+                        </select>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-gray-800 mb-3">2. Qual è il fattore primario nelle decisioni di acquisto di nuovo hardware?</label>
+                        <select name="q2" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <option value="1">Il costo di acquisto più basso.</option>
+                            <option value="2">Le performance tecniche.</option>
+                            <option value="3">Il costo totale di possesso (TCO), inclusa l'energia.</option>
+                            <option value="4">Criteri di circolarità (es. uso di materiali riciclati, riparabilità).</option>
+                        </select>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-gray-800 mb-3">3. I team di sviluppo software considerano l'efficienza energetica durante la scrittura del codice?</label>
+                        <select name="q3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <option value="1">Mai, non fa parte dei nostri requisiti.</option>
+                            <option value="2">Occasionalmente, se un problema di performance lo richiede.</option>
+                            <option value="3">Spesso, ci sono linee guida informali.</option>
+                            <option value="4">Sempre, è una pratica standard integrata nella nostra "Definition of Done".</option>
+                        </select>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-gray-800 mb-3">4. Come gestite i dispositivi elettronici a fine vita (e-waste)?</label>
+                        <select name="q4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <option value="1">Vengono smaltiti senza un processo specifico.</option>
+                            <option value="2">Ci affidiamo a un servizio di smaltimento generico.</option>
+                            <option value="3">Abbiamo un partner certificato per il riciclo.</option>
+                            <option value="4">Abbiamo un programma attivo di ricondizionamento, riuso interno o donazione.</option>
+                        </select>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-lg font-semibold text-gray-800 mb-3">5. La vostra strategia cloud include la scelta di region basata sulla disponibilità di energia a basse emissioni?</label>
+                        <select name="q5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <option value="1">No, scegliamo solo in base a latenza e costi.</option>
+                            <option value="2">Ne abbiamo discusso, ma non è un criterio decisionale.</option>
+                            <option value="3">È un fattore considerato per i nuovi progetti.</option>
+                            <option value="4">Sì, è un criterio fondamentale nella nostra strategia di architettura multi-region.</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-lime-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-lime-700 transition-colors">Calcola il mio Profilo</button>
+                    </div>
+                </form>
+                
+                <div id="results" class="hidden mt-10 text-center">
+                     <div class="p-8 bg-lime-50 rounded-lg border border-lime-200">
+                        <h3 id="resultTitle" class="text-2xl font-bold text-lime-800"></h3>
+                        <p id="resultText" class="mt-2 text-gray-700 max-w-2xl mx-auto"></p>
+                    </div>
+                    <div id="lead-capture" class="mt-8 max-w-2xl mx-auto">
+                        <p class="font-semibold text-gray-800 mb-4">Vuoi trasformare questi insight in una roadmap strategica?</p>
+                        <p class="text-gray-600 mb-4">Inserisci la tua email per ricevere un'analisi dettagliata del tuo profilo e i primi 3 passi consigliati, e per prenotare una sessione strategica gratuita di 30 minuti.</p>
+                        <form id="leadForm" class="flex flex-col sm:flex-row gap-2">
+                            <input type="email" placeholder="La tua email di lavoro" required class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                            <button type="submit" class="bg-lime-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-lime-700 transition-colors">Richiedi il Report</button>
+                        </form>
+                        <p id="lead-success" class="hidden mt-4 text-green-700 font-semibold">Grazie! Riceverai presto il tuo report personalizzato.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Closing Remarks -->
+        <section id="closing-remarks">
+            <div class="container mx-auto px-6 text-center max-w-4xl py-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">L'Urgente Necessità della Sostenibilità IT: I Numeri Parlano</h2>
+                <div class="text-left space-y-4 text-gray-600 text-lg">
+                    <p>
+                        Ignorare l'impatto della tecnologia non è più un'opzione. I dati mostrano una tendenza preoccupante che impatta direttamente sui costi operativi, sui rischi normativi e sulla reputazione aziendale. Considerare la sostenibilità non è solo una responsabilità, ma un'astuta mossa strategica.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 text-center">
+                    <!-- Stat 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <p class="text-4xl font-bold gradient-text">~4%</p>
+                        <p class="mt-2 font-semibold text-gray-700">delle emissioni globali di gas serra</p>
+                        <p class="text-sm text-gray-500 mt-1">Il settore digitale inquina più dell'intera aviazione civile.</p>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <p class="text-4xl font-bold gradient-text">14%</p>
+                        <p class="mt-2 font-semibold text-gray-700">la stima di crescita entro il 2040</p>
+                        <p class="text-sm text-gray-500 mt-1">Senza interventi, l'impronta del digitale è destinata a quasi quadruplicare.</p>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <p class="text-4xl font-bold gradient-text">62M</p>
+                        <p class="mt-2 font-semibold text-gray-700">di tonnellate di e-waste nel 2022</p>
+                        <p class="text-sm text-gray-500 mt-1">Un peso in rifiuti elettronici pari a 1.55 milioni di camion da 40 tonnellate.</p>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <p class="text-4xl font-bold gradient-text">x2</p>
+                        <p class="mt-2 font-semibold text-gray-700">Consumo energetico dei datacenter</p>
+                        <p class="text-sm text-gray-500 mt-1">Si prevede che il consumo raddoppierà entro il 2026, spinto soprattutto dall'AI.</p>
+                    </div>
+                </div>
+                 <div class="mt-10 text-lg text-gray-600">
+                    <p>
+                        Questi numeri non sono solo statistiche: rappresentano costi energetici in aumento, catene di approvvigionamento a rischio e una crescente pressione da parte di consumatori e legislatori. Agire ora significa trasformare questi rischi in opportunità, costruendo un'infrastruttura IT efficiente, resiliente e pronta per il futuro.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <h3 class="font-bold text-gray-700 mb-4">Partecipiamo Attivamente a</h3>
+                <div class="flex justify-center items-center flex-wrap gap-x-8 gap-y-4 text-gray-500 font-semibold">
+                    <span><a href="https://w3c.github.io/sustainableweb-wsg/">W3C Sustainable Web</a></span>
+                    <span><a href="https://greensoftware.foundation">Green Software Foundation</a></span>
+                    <span><a href="https://www.sloweb.org">Sloweb</a></span>
+                    <span><a href="https://www.climateinteractive.org">Climate Interactive</a></span>
+                    <span><a href="https://www.grusp.org">GRUSP</a></span>
+                    <span><a href="https://www.sustainableit.it">SustainableIT.it</a></span>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 mt-10">
+                <p>&copy; 2025 KodamaHQ. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LOGICA DEL GIOCO ---
+            const gameState = {
+                currentDilemmaIndex: 0,
+                totalScore: 0,
+                choices: [],
+                dilemmas: [
+                    {
+                        title: "Dilemma 1: Scelta dell'Energia",
+                        description: "Dobbiamo decidere se investire in energia rinnovabile (più costosa inizialmente) o mantenere i fornitori tradizionali a basso costo.",
+                        arguments: [
+                            { text: "Richiedere la certificazione ISO 50001 per l'efficienza energetica.", affects: ['IT/Infra', 'Compliance'], points: 2 },
+                            { text: "Evidenziare i benefici reputazionali di un PUE (Power Usage Effectiveness) basso.", affects: ['Marketing', 'IT/Infra'], points: 2 },
+                            { text: "Introdurre clausole per la trasparenza sulla Carbon Intensity (CUE) della regione del datacenter.", affects: ['R&D', 'Compliance'], points: 2 },
+                            { text: "Lanciare una campagna di marketing per piantare alberi e compensare le emissioni.", affects: [], points: 0 }
+                        ]
+                    },
+                    {
+                        title: "Dilemma 2: Gestione dei Rifiuti Elettronici (E-waste)",
+                        description: "L'hardware obsoleto deve essere sostituito. Scegliamo un fornitore di smaltimento certificato (più caro) o uno più economico?",
+                        arguments: [
+                            { text: "Inserire una clausola che obbliga il fornitore a fornire un report di tracciabilità del riciclo.", affects: ['Supply Chain', 'Compliance'], points: 2 },
+                            { text: "Promuovere un programma di 'seconda vita' per i device, donando l'hardware funzionante.", affects: ['Marketing', 'IT/Infra'], points: 2 },
+                            { text: "Valutare fornitori che offrono una percentuale di hardware ricondizionato per i nuovi acquisti.", affects: ['Supply Chain', 'R&D'], points: 2 },
+                            { text: "Acquistare crediti di carbonio per l'e-waste prodotto.", affects: [], points: 0 }
+                        ]
+                    },
+                    {
+                        title: "Dilemma 3: Adozione di Software Ottimizzato",
+                        description: "Possiamo sviluppare software più efficiente, ma richiederà più tempo, rallentando il time-to-market. Cosa prioritizziamo?",
+                        arguments: [
+                            { text: "Integrare metriche di eco-design (es. SCI) nel processo di sviluppo e nei requisiti contrattuali.", affects: ['R&D', 'IT/Infra'], points: 2 },
+                            { text: "Richiedere che il software garantisca compatibilità con hardware datato per almeno 5 anni.", affects: ['Supply Chain', 'Compliance'], points: 2 },
+                            { text: "Comunicare l'efficienza energetica del software come un vantaggio competitivo.", affects: ['Marketing', 'R&D'], points: 2 },
+                            { text: "Aumentare la RAM sui server per far girare più velocemente il software attuale.", affects: [], points: 0 }
+                        ]
+                    },
+                     {
+                        title: "Dilemma 4: Strategia Cloud e Sovra-provisioning",
+                        description: "Il nostro utilizzo del cloud è cresciuto, ma sospettiamo di avere molte risorse sovra-dimensionate e inattive. Come affrontiamo il problema?",
+                        arguments: [
+                            { text: "Implementare una policy di 'right-sizing' automatico e spegnimento delle risorse non utilizzate (lightswitch ops).", affects: ['IT/Infra', 'Supply Chain'], points: 2 },
+                            { text: "Scegliere le region cloud in base alla loro Carbon Intensity e spostare i carichi di lavoro non critici (demand shifting).", affects: ['R&D', 'Compliance'], points: 2 },
+                            { text: "Rendere pubblici i nostri sforzi di ottimizzazione cloud nel report di sostenibilità.", affects: ['Marketing', 'IT/Infra'], points: 2 },
+                            { text: "Acquistare istanze cloud più grandi per garantire di non avere mai problemi di performance.", affects: [], points: 0 }
+                        ]
+                    }
+                ],
+                units: {
+                    'IT/Infra': { name: 'IT/Infrastruttura', convinced: false, description: 'Minimizzare costi operativi, mantenendo performance e stabilità.' },
+                    'R&D': { name: 'R&D Software', convinced: false, description: 'Innovare e rilasciare nuove funzionalità velocemente.' },
+                    'Supply Chain': { name: 'Supply Chain', convinced: false, description: 'Ottimizzare i costi e i tempi di approvvigionamento.' },
+                    'Marketing': { name: 'Marketing & PR', convinced: false, description: 'Costruire una forte reputazione del brand e attrarre clienti.' },
+                    'Compliance': { name: 'Compliance & Legal', convinced: false, description: 'Assicurare la conformità alle normative e ridurre i rischi legali.' }
+                }
+            };
+
+            let attempts;
+            const startScreen = document.getElementById('start-screen');
+            const gameScreen = document.getElementById('game-screen');
+            const endScreen = document.getElementById('end-screen');
+            const startGameBtn = document.getElementById('start-game-btn');
+            const restartGameBtn = document.getElementById('restart-game-btn');
+            const nextDilemmaBtn = document.getElementById('next-dilemma-btn');
+            const currentScoreEl = document.getElementById('current-score');
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            startGameBtn.addEventListener('click', startGame);
+            restartGameBtn.addEventListener('click', startGame);
+            nextDilemmaBtn.addEventListener('click', nextDilemma);
+
+            function startGame() {
+                gameState.currentDilemmaIndex = 0;
+                gameState.totalScore = 0;
+                gameState.choices = [];
+                Object.values(gameState.units).forEach(u => u.convinced = false);
+                startScreen.classList.add('hidden');
+                endScreen.classList.add('hidden');
+                gameScreen.classList.remove('hidden');
+                loadDilemma(gameState.currentDilemmaIndex);
+            }
+            
+            function loadDilemma(index) {
+                Object.values(gameState.units).forEach(u => u.convinced = false);
+                const dilemma = gameState.dilemmas[index];
+                attempts = 2;
+                
+                document.getElementById('dilemma-title').textContent = dilemma.title;
+                document.getElementById('dilemma-description').textContent = dilemma.description;
+                document.getElementById('attempts-left').textContent = attempts;
+                currentScoreEl.textContent = gameState.totalScore;
+                document.getElementById('progress-bar').style.width = '0%';
+                document.getElementById('next-dilemma-container').classList.add('hidden');
+                document.getElementById('feedback-message').classList.add('hidden');
+
+                renderUnits();
+                const shuffledArguments = [...dilemma.arguments];
+                shuffleArray(shuffledArguments);
+                renderArguments(shuffledArguments);
+            }
+
+            function renderUnits() {
+                const container = document.getElementById('units-container');
+                container.innerHTML = '';
+                for (const unitKey in gameState.units) {
+                    const unit = gameState.units[unitKey];
+                    const card = document.createElement('div');
+                    card.className = `unit-card border-2 p-4 rounded-lg text-center ${unit.convinced ? 'convinced' : 'border-gray-300'}`;
+                    card.innerHTML = `<h4 class="font-bold text-lg">${unit.name}</h4><p class="text-sm text-gray-500 mt-1">${unit.description}</p><p class="mt-2 text-sm font-semibold">Stato: <span class="${unit.convinced ? 'text-green-600' : 'text-gray-600'}">${unit.convinced ? 'Convinto!' : 'Neutrale'}</span></p>`;
+                    container.appendChild(card);
+                }
+            }
+
+            function renderArguments(args) {
+                const container = document.getElementById('arguments-container');
+                container.innerHTML = '';
+                args.forEach(arg => {
+                    const button = document.createElement('button');
+                    button.className = 'argument-btn bg-white p-4 rounded-lg shadow hover:bg-gray-50 text-left border';
+                    button.innerHTML = `<p class="font-semibold">${arg.text}</p>`;
+                    button.onclick = () => selectArgument(arg);
+                    container.appendChild(button);
+                });
+            }
+
+            function selectArgument(arg) {
+                if (attempts <= 0) return;
+                attempts--;
+                document.getElementById('attempts-left').textContent = attempts;
+                
+                let convincedUnits = [];
+                arg.affects.forEach(unitKey => {
+                    if (!gameState.units[unitKey].convinced) {
+                        gameState.units[unitKey].convinced = true;
+                        convincedUnits.push(gameState.units[unitKey].name);
+                    }
+                });
+                
+                gameState.totalScore += arg.points * convincedUnits.length;
+                currentScoreEl.textContent = gameState.totalScore;
+                
+                gameState.choices.push({
+                    dilemmaIndex: gameState.currentDilemmaIndex,
+                    argumentText: arg.text,
+                    convinced: convincedUnits,
+                    points: arg.points * convincedUnits.length
+                });
+                
+                const feedback = document.getElementById('feedback-message');
+                if (arg.points > 0 && convincedUnits.length > 0) {
+                    feedback.textContent = `Ottimo! Hai convinto: ${convincedUnits.join(', ')}.`;
+                    feedback.className = 'mt-6 text-center font-semibold p-3 rounded-lg bg-green-100 text-green-800';
+                } else if (arg.points > 0 && convincedUnits.length === 0) {
+                    feedback.textContent = 'Questo argomento non ha convinto nessuno di nuovo, ma ha rafforzato la discussione.';
+                    feedback.className = 'mt-6 text-center font-semibold p-3 rounded-lg bg-yellow-100 text-yellow-800';
+                } else {
+                     feedback.textContent = 'Questo argomento non ha convinto nessuno. Sembrava una buona idea, ma non ha centrato gli interessi delle business unit.';
+                    feedback.className = 'mt-6 text-center font-semibold p-3 rounded-lg bg-red-100 text-red-800';
+                }
+                feedback.classList.remove('hidden');
+
+                renderUnits();
+                updateProgress();
+
+                if (Object.values(gameState.units).every(u => u.convinced) || attempts === 0) {
+                    endDilemma();
+                }
+            }
+
+            function updateProgress() {
+                const convincedCount = Object.values(gameState.units).filter(u => u.convinced).length;
+                document.getElementById('progress-bar').style.width = `${(convincedCount / 5) * 100}%`;
+            }
+
+            function endDilemma() {
+                document.querySelectorAll('#arguments-container button').forEach(button => button.disabled = true);
+                const nextContainer = document.getElementById('next-dilemma-container');
+                nextContainer.classList.remove('hidden');
+                nextDilemmaBtn.textContent = (gameState.currentDilemmaIndex === gameState.dilemmas.length - 1) ? 'Vedi Risultato Finale' : 'Prossimo Dilemma';
+            }
+
+            function nextDilemma() {
+                gameState.currentDilemmaIndex++;
+                if (gameState.currentDilemmaIndex < gameState.dilemmas.length) {
+                    loadDilemma(gameState.currentDilemmaIndex);
+                } else {
+                    showEndScreen();
+                }
+            }
+            
+            function showEndScreen() {
+                gameScreen.classList.add('hidden');
+                endScreen.classList.remove('hidden');
+                document.getElementById('end-score').textContent = `Punteggio Sostenibilità Finale: ${gameState.totalScore}`;
+                
+                let title, summary;
+                if (gameState.totalScore >= 32) {
+                    title = "Risultato Eccellente!";
+                    summary = "Hai guidato il team verso le scelte più sostenibili in ogni dilemma, bilanciando perfettamente innovazione, costi e responsabilità. La tua capacità di argomentare ha creato un consenso forte e un impatto positivo duraturo.";
+                } else if (gameState.totalScore >= 20) {
+                    title = "Buon Risultato!";
+                    summary = "Hai ottenuto un buon compromesso, portando l'azienda verso un percorso di maggiore sostenibilità. Alcune decisioni sono state difficili, ma hai gettato le basi per un cambiamento culturale significativo. Riprova per vedere se riesci a raggiungere il risultato eccellente!";
+                } else {
+                    title = "Margini di Miglioramento";
+                    summary = "Il percorso è stato complesso e non tutte le business unit hanno abbracciato pienamente la visione sostenibile. Questo risultato evidenzia l'importanza di una comunicazione mirata. Rigioca per affinare la tua strategia e convincere tutti!";
+                }
+                document.getElementById('end-title').textContent = title;
+                document.getElementById('end-summary').textContent = summary;
+                
+                renderDilemmaSummary();
+                setupShareLinks();
+            }
+
+            function renderDilemmaSummary() {
+                const container = document.getElementById('dilemma-summary-container');
+                container.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Riepilogo delle tue scelte</h3>';
+                gameState.dilemmas.forEach((dilemma, index) => {
+                    const choicesForDilemma = gameState.choices.filter(c => c.dilemmaIndex === index);
+                    let choicesHtml = choicesForDilemma.map(choice => 
+                        `<li class="text-sm"><strong>Scelta:</strong> "${choice.argumentText}" - <span class="${choice.points > 0 ? 'text-green-600' : 'text-red-600'}">Punti: ${choice.points}</span></li>`
+                    ).join('');
+
+                    const explanation = getDilemmaExplanation(index);
+
+                    container.innerHTML += `
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-gray-700">${dilemma.title}</h4>
+                            <ul class="list-disc list-inside mt-2">${choicesHtml || '<li class="text-sm text-gray-500">Nessuna scelta efficace registrata.</li>'}</ul>
+                            <p class="text-sm mt-2 text-gray-600 italic">${explanation}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            function getDilemmaExplanation(index) {
+                const explanations = [
+                    "**Spiegazione:** Le scelte più efficaci qui sono quelle che legano la sostenibilità a metriche concrete (ISO 50001, PUE, CUE), che interessano direttamente IT, Compliance e R&D. La compensazione tramite alberi, sebbene positiva, è vista come un'azione di marketing scollegata dall'operatività (greenwashing).",
+                    "**Spiegazione:** La tracciabilità e il riuso/ricondizionamento sono azioni misurabili e concrete che impattano la Supply Chain e la Compliance. L'acquisto di crediti di carbonio è un'azione di compensazione, non di riduzione alla fonte, e quindi meno strategica per le operation.",
+                    "**Spiegazione:** Integrare le metriche nel processo di sviluppo (SCI) e garantire la longevità dell'hardware sono cambiamenti strutturali che convincono R&D e Compliance. Aumentare la RAM è una soluzione temporanea e inefficiente che non risolve il problema alla radice, ma anzi aumenta il consumo energetico.",
+                    "**Spiegazione:** Il right-sizing e il demand-shifting sono pratiche di FinOps/GreenOps che portano a risparmi misurabili e a una riduzione delle emissioni, convincendo IT, Supply Chain e R&D. Acquistare istanze più grandi è un anti-pattern che aumenta sprechi e costi nel lungo periodo."
+                ];
+                return explanations[index];
+            }
+            
+            function setupShareLinks() {
+                const score = gameState.totalScore;
+                const text = encodeURIComponent(`Ho ottenuto un punteggio di ${score} nel Datacenter Dilemma di KodamaHQ! Metti alla prova le tue abilità di consulenza sulla sostenibilità IT.`);
+                const url = encodeURIComponent(window.location.href);
+
+                document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                document.getElementById('share-email').href = `mailto:?subject=Ho provato il Datacenter Dilemma di KodamaHQ!&body=${text} ${url}`;
+            }
+
+            // --- LOGICA DEL QUESTIONARIO ---
+            const quizForm = document.getElementById('quizForm');
+            const resultsDiv = document.getElementById('results');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultText = document.getElementById('resultText');
+            const leadForm = document.getElementById('leadForm');
+            const leadSuccess = document.getElementById('lead-success');
+
+            quizForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(quizForm);
+                let score = 0;
+                for (let value of formData.values()) {
+                    score += parseInt(value);
+                }
+
+                let title = '';
+                let text = '';
+
+                if (score <= 8) {
+                    title = 'Profilo: Seme (Aspiring)';
+                    text = 'La vostra organizzazione è nelle fasi iniziali del percorso. C\'è un enorme potenziale di miglioramento, partendo dalla misurazione dell\'impronta attuale (Fase 1) per costruire una base solida. I primi passi possono portare a significativi risparmi e a una maggiore efficienza.';
+                } else if (score <= 14) {
+                    title = 'Profilo: Germoglio (Aware)';
+                    text = 'Avete iniziato a considerare la sostenibilità, ma le azioni sono ancora frammentate. Il passo successivo è strutturare queste iniziative. Un Assessment di Maturità (Fase 2) può aiutarvi a identificare le lacune e a costruire una roadmap coerente (Fase 3).';
+                } else if (score <= 18) {
+                    title = 'Profilo: Albero (Acting)';
+                    text = 'State già implementando pratiche sostenibili. L\'opportunità ora è di sistematizzare e scalare queste iniziative, integrandole pienamente nella cultura aziendale. Una Roadmap strategica (Fase 3) può aiutarvi a massimizzare l\'impatto.';
+                } else {
+                    title = 'Profilo: Foresta (Inspiring)';
+                    text = 'Siete tra i leader della sostenibilità IT. La sfida è mantenere l\'eccellenza e innovare continuamente, esplorando pratiche avanzate come il Carbon-Aware Computing e diventando un punto di riferimento per il settore.';
+                }
+                
+                resultTitle.textContent = title;
+                resultText.textContent = text;
+                resultsDiv.classList.remove('hidden');
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            leadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Qui andrebbe la logica di invio del lead a un CRM o backend
+                leadForm.classList.add('hidden');
+                leadSuccess.classList.remove('hidden');
+            });
+
+            // --- LOGICA MENU MOBILE E HEADER FISSO ---
+            const mainNav = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
