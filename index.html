@@ -694,7 +694,7 @@
                 const url = encodeURIComponent(window.location.href);
 
                 document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-                document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?text=${text}&url=${url}`;
                 document.getElementById('share-email').href = `mailto:?subject=Ho provato il Datacenter Dilemma di Kodama HQ!&body=${text} ${url}`;
             }
 
