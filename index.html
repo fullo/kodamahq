@@ -726,7 +726,7 @@
                 const subject = encodeURIComponent("Richiesta Report Sostenibilità IT - KodamaHQ");
 
                 const formData = new FormData(quizForm);
-                let body = "Risultati Assessment Sostenibilità IT:\n\n";
+                let body = "Ciao,\n\n Ecco i miei risultati all'Assessment Sostenibilità IT:\n\n";
                 let score = 0;
                 let i = 1;
                 for (let [key, value] of formData.entries()) {
@@ -747,7 +747,7 @@
                     profileTitle = 'Foresta (Inspiring)';
                 }
                 body += `Profilo di Maturità Stimato: ${profileTitle}\n`;
-                body += `Email del contatto: ${email}\n`;
+                body += `Puoi mandarmi il report completo al mio indirizzo email: ${email}\n`;
                 
                 const bodyEncoded = encodeURIComponent(body);
                 window.location.href = `mailto:info@kodamahq.it?subject=${subject}&body=${bodyEncoded}`;
