@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- SEO Meta Tags -->
     <title>KodamaHQ - Consulenza Strategica per la Sostenibilità IT</title>
     <meta name="description" content="KodamaHQ offre consulenza strategica per la Sostenibilità IT. Scopri il nostro piano in 4 fasi per ridurre l'impronta carbonica e creare valore responsabile.">
     
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="KodamaHQ - Consulenza Strategica per la Sostenibilità IT">
+    <meta property="og:description" content="Riportare l'equilibrio nell'ecosistema digitale. Scopri il nostro metodo per rendere la tua tecnologia più sostenibile.">
+    <meta property="og:image" content="https://www.kodamahq.it/kodamahq.webp">
+    <meta property="og:url" content="https://www.kodamahq.it">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
-        .font-title { font-family: 'Cinzel Decorative', serif; }
+        .font-brand-title { font-family: 'Cinzel Decorative', serif; }
+        .font-section-title { font-family: 'Lora', serif; }
         :root {
             --brand-green: #65a30d; /* Verde primario dal logo */
             --brand-green-dark: #3f6212; /* Verde scuro per hover e testo */
@@ -65,22 +75,22 @@
         .mobile-menu-details > summary { list-style: none; }
         
         section {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 80px; /* Offset per l'ancora a causa del menu fisso */
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-700">
     <noscript>
-        <div class="bg-yellow-300 text-center p-2">Per un'esperienza interattiva completa, ti consigliamo di abilitare JavaScript.</div>
+        <div class="bg-yellow-300 text-center p-2 fixed top-0 w-full z-50">Per un'esperienza interattiva completa, ti consigliamo di abilitare JavaScript.</div>
     </noscript>
 
     <!-- Header & Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center py-4">
-                <a href="#" class="flex items-center space-x-2">
-                    <img src="/kodamahq.webp" alt="Logo KodamaHQ" class="h-10 w-10">
-                    <span class="text-2xl font-bold text-gray-800 font-title">KodamaHQ</span>
+                <a id="nav-brand" href="#" class="flex items-center space-x-2 transition-opacity duration-300 opacity-0">
+                    <img src="https://www.kodamahq.it/kodamahq.webp" alt="Logo KodamaHQ" class="h-10 w-10">
+                    <span class="text-2xl font-bold text-gray-800 font-brand-title">KodamaHQ</span>
                 </a>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
@@ -110,10 +120,10 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-center gap-12">
                 <div class="flex-shrink-0">
-                    <img src="/kodamahq.webp" alt="Logo KodamaHQ con tre spiriti della natura che usano dispositivi digitali" class="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg">
+                    <img src="https://www.kodamahq.it/kodamahq.webp" alt="Logo KodamaHQ con tre spiriti della natura che usano dispositivi digitali" class="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg">
                 </div>
                 <div class="text-center md:text-left">
-                    <h1 class="text-4xl md:text-7xl font-bold gradient-text font-title">KodamaHQ</h1>
+                    <h1 id="main-title" class="text-4xl md:text-7xl font-bold gradient-text font-brand-title">KodamaHQ</h1>
                     <p class="mt-4 text-xl text-gray-600 max-w-xl">Riportare l'equilibrio nell'ecosistema digitale.</p>
                 </div>
             </div>
@@ -123,7 +133,7 @@
     <!-- Sezione Introduttiva -->
     <section class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">Perché la Sostenibilità IT è Fondamentale, Ora.</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-section-title">Perché la Sostenibilità IT è Fondamentale, Ora.</h2>
             <div class="text-left space-y-4 text-gray-600 text-lg">
                 <p>
                     Nel nostro mondo digitale, ogni click, ogni riga di codice e ogni server ha un impatto fisico. La tecnologia che alimenta il nostro progresso consuma enormi quantità di energia e genera montagne di rifiuti elettronici (e-waste). Questo ecosistema, se non gestito con consapevolezza, crea uno squilibrio con conseguenze reali per il pianeta, le persone e il business.
@@ -139,10 +149,10 @@
     </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-16 space-y-12">
+    <main class="container mx-auto px-6 py-12 space-y-12">
         <!-- Sezione Piano Operativo -->
         <section id="process">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-20 font-title">Il Nostro Piano Operativo in 4 Fasi</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-20 font-section-title">Il Nostro Piano Operativo in 4 Fasi</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
                 <!-- Fase 1 -->
                 <div class="relative bg-white p-6 rounded-xl shadow-lg border-t-4 border-lime-500 step-card">
@@ -178,7 +188,7 @@
         <!-- Sezione Gioco di Ruolo -->
         <section id="game-section">
             <div class="bg-white rounded-xl shadow-xl p-8 md:p-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-title">Mettiti alla Prova: Il Dilemma del Datacenter</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-section-title">Mettiti alla Prova: Il Dilemma del Datacenter</h2>
                 <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">La sostenibilità è un gioco di equilibri. Prova la nostra simulazione interattiva per scoprire le sfide nel guidare un team eterogeneo verso una decisione strategica e sostenibile.</p>
                 
                 <div id="game-container" class="w-full max-w-6xl mx-auto bg-gray-50 rounded-2xl shadow-inner p-6 md:p-10 border">
@@ -221,7 +231,7 @@
                     
                     <!-- Schermata Finale del Gioco -->
                     <div id="end-screen" class="hidden text-center">
-                         <h2 id="end-title" class="text-4xl font-bold text-gray-800 font-title"></h2>
+                         <h2 id="end-title" class="text-4xl font-bold text-gray-800 font-section-title"></h2>
                          <p id="end-score" class="text-2xl mt-4 font-semibold text-lime-700"></p>
                          <p id="end-summary" class="text-lg mt-4 text-gray-600 max-w-3xl mx-auto"></p>
                          <div id="dilemma-summary-container" class="mt-8 text-left max-w-3xl mx-auto space-y-4"></div>
@@ -244,27 +254,28 @@
         <!-- Sezione Maturity Matrix -->
         <section id="maturity-matrix">
              <div class="container mx-auto px-6 text-center max-w-4xl py-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">Misurare per Migliorare: Dal Seme alla Foresta Antica</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-section-title">Misurare per Migliorare: Dal Seme alla Foresta Antica</h2>
                 <div class="text-left space-y-4 text-gray-600 text-lg">
                     <p>
                         Intraprendere un percorso di sostenibilità senza una mappa è come navigare senza bussola. La <strong>Sustainable Software Maturity Matrix</strong> è lo strumento che usiamo per darvi questa bussola. Non è un giudizio, ma una fotografia chiara della vostra posizione attuale, un punto di partenza per una crescita consapevole.
                     </p>
                     <p>
-                        Ispirandoci alla crescita di una foresta, la matrice valuta il vostro percorso su una scala di maturità progressiva:
+                        Ispirandoci alla crescita di una foresta, la matrice valuta il vostro percorso su una scala di maturità a 5 livelli:
                     </p>
-                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
                         <div class="bg-white p-4 rounded-lg border-l-4 border-lime-500">
                             <h4 class="font-bold text-lime-800">🌱 Dal Seme (Aspiring & Aware)</h4>
-                            <p class="text-sm">L'organizzazione sta piantando i primi semi. La consapevolezza sta nascendo e si compiono le prime azioni, spesso manuali e isolate.</p>
+                            <p class="text-sm">L'organizzazione sta piantando i primi semi. La consapevolezza sta nascendo (Aware) e si compiono le prime azioni, spesso manuali e isolate partendo da una base quasi inesistente (Aspiring).</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-l-4 border-lime-500">
                             <h4 class="font-bold text-lime-800">🌳 All'Albero (Acting & Awesome)</h4>
-                            <p class="text-sm">Le radici sono solide. Le pratiche sostenibili sono definite, integrate nei processi e sempre più automatizzate. L'impatto è misurabile e visibile.</p>
+                            <p class="text-sm">Le radici sono solide. Le pratiche sostenibili sono definite (Acting) e sempre più integrate nei processi e automatizzate (Awesome). L'impatto è misurabile, visibile e ottimizzato.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-lime-500">
+                            <h4 class="font-bold text-lime-800">🌲🌲 Alla Foresta (Inspiring)</h4>
+                            <p class="text-sm">L'organizzazione è un ecosistema maturo. Diventa un leader del settore (Inspiring), innovando costantemente e definendo le nuove best practice per l'intera comunità.</p>
                         </div>
                     </div>
-                     <p class="font-semibold text-gray-800 pt-4">
-                        Il nostro assessment (Fase 2) vi aiuta a capire a che punto del percorso vi trovate, per costruire una roadmap che vi porti a diventare una foresta rigogliosa e resiliente (Inspiring).
-                    </p>
                 </div>
             </div>
         </section>
@@ -272,7 +283,7 @@
         <!-- Sezione Questionario -->
         <section id="assessment">
             <div class="bg-white rounded-xl shadow-xl p-8 md:p-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-title">Scopri la Tua Maturità Sostenibile</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 font-section-title">Scopri la Tua Maturità Sostenibile</h2>
                 <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">Ora che hai la mappa, fai il primo passo. Rispondi a queste 5 domande per ottenere una prima valutazione del tuo posizionamento e identificare le prossime azioni strategiche.</p>
                 
                 <form id="quizForm" class="max-w-3xl mx-auto">
@@ -335,9 +346,11 @@
                     <div id="lead-capture" class="mt-8 max-w-2xl mx-auto">
                         <p class="font-semibold text-gray-800 mb-4">Vuoi trasformare questi insight in una roadmap strategica?</p>
                         <p class="text-gray-600 mb-4">Inserisci la tua email per ricevere un'analisi dettagliata del tuo profilo e i primi 3 passi consigliati, e per prenotare una sessione strategica gratuita di 30 minuti.</p>
-                        <form id="leadForm" class="flex flex-col sm:flex-row gap-2">
-                            <input type="email" placeholder="La tua email di lavoro" required class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
-                            <button type="submit" class="bg-lime-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-lime-700 transition-colors">Richiedi il Report</button>
+                        <form id="leadForm">
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="email" id="leadEmail" placeholder="La tua email di lavoro" required class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-lime-500">
+                                <button type="submit" class="bg-lime-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-lime-700 transition-colors">Richiedi il Report</button>
+                            </div>
                         </form>
                         <p id="lead-success" class="hidden mt-4 text-green-700 font-semibold">Grazie! Riceverai presto il tuo report personalizzato.</p>
                     </div>
@@ -348,7 +361,7 @@
         <!-- Sezione Closing Remarks -->
         <section id="closing-remarks">
             <div class="container mx-auto px-6 text-center max-w-4xl py-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-title">L'Urgente Necessità della Sostenibilità IT: I Numeri Parlano</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-section-title">L'Urgente Necessità della Sostenibilità IT: I Numeri Parlano</h2>
                 <div class="text-left space-y-4 text-gray-600 text-lg">
                     <p>
                         Ignorare l'impatto della tecnologia non è più un'opzione. I dati mostrano una tendenza preoccupante che impatta direttamente sui costi operativi, sui rischi normativi e sulla reputazione aziendale. Considerare la sostenibilità non è solo una responsabilità, ma un'astuta mossa strategica.
@@ -677,47 +690,93 @@
             const resultText = document.getElementById('resultText');
             const leadForm = document.getElementById('leadForm');
             const leadSuccess = document.getElementById('lead-success');
-
+            
             quizForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(quizForm);
                 let score = 0;
+                
                 for (let value of formData.values()) {
                     score += parseInt(value);
                 }
 
-                let title = '';
-                let text = '';
+                let profileTitle = '';
+                let fallbackText = '';
 
                 if (score <= 8) {
-                    title = 'Profilo: Seme (Aspiring)';
-                    text = 'La vostra organizzazione è nelle fasi iniziali del percorso. C\'è un enorme potenziale di miglioramento, partendo dalla misurazione dell\'impronta attuale (Fase 1) per costruire una base solida. I primi passi possono portare a significativi risparmi e a una maggiore efficienza.';
-                } else if (score <= 14) {
-                    title = 'Profilo: Germoglio (Aware)';
-                    text = 'Avete iniziato a considerare la sostenibilità, ma le azioni sono ancora frammentate. Il passo successivo è strutturare queste iniziative. Un Assessment di Maturità (Fase 2) può aiutarvi a identificare le lacune e a costruire una roadmap coerente (Fase 3).';
-                } else if (score <= 18) {
-                    title = 'Profilo: Albero (Acting)';
-                    text = 'State già implementando pratiche sostenibili. L\'opportunità ora è di sistematizzare e scalare queste iniziative, integrandole pienamente nella cultura aziendale. Una Roadmap strategica (Fase 3) può aiutarvi a massimizzare l\'impatto.';
+                    profileTitle = 'Profilo: Seme (Aspiring & Aware)';
+                    fallbackText = 'La vostra organizzazione è nelle fasi iniziali del percorso. C\'è un enorme potenziale di miglioramento, partendo dalla misurazione dell\'impronta attuale (Fase 1) per costruire una base solida. I primi passi possono portare a significativi risparmi e a una maggiore efficienza.';
+                } else if (score <= 16) {
+                    profileTitle = 'Profilo: Albero (Acting & Awesome)';
+                    fallbackText = 'State già implementando pratiche sostenibili. L\'opportunità ora è di sistematizzare e scalare queste iniziative, integrandole pienamente nella cultura aziendale. Una Roadmap strategica (Fase 3) può aiutarvi a massimizzare l\'impatto.';
                 } else {
-                    title = 'Profilo: Foresta (Inspiring)';
-                    text = 'Siete tra i leader della sostenibilità IT. La sfida è mantenere l\'eccellenza e innovare continuamente, esplorando pratiche avanzate come il Carbon-Aware Computing e diventando un punto di riferimento per il settore.';
+                    profileTitle = 'Profilo: Foresta (Inspiring)';
+                    fallbackText = 'Siete tra i leader della sostenibilità IT. La sfida è mantenere l\'eccellenza e innovare continuamente, esplorando pratiche avanzate come il Carbon-Aware Computing e diventando un punto di riferimento per il settore.';
                 }
                 
-                resultTitle.textContent = title;
-                resultText.textContent = text;
+                resultTitle.textContent = profileTitle;
+                resultText.innerHTML = `<p>${fallbackText}</p>`;
                 resultsDiv.classList.remove('hidden');
                 resultsDiv.scrollIntoView({ behavior: 'smooth' });
             });
 
             leadForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // Qui andrebbe la logica di invio del lead a un CRM o backend
+                const email = document.getElementById('leadEmail').value;
+                const subject = encodeURIComponent("Richiesta Report Sostenibilità IT - KodamaHQ");
+
+                const formData = new FormData(quizForm);
+                let body = "Risultati Assessment Sostenibilità IT:\n\n";
+                let score = 0;
+                let i = 1;
+                for (let [key, value] of formData.entries()) {
+                    score += parseInt(value);
+                    const select = document.querySelector(`select[name="${key}"]`);
+                    const question = select.previousElementSibling.textContent;
+                    const answerText = select.options[select.selectedIndex].text;
+                    body += `${i}. ${question}\nRisposta: ${answerText}\n\n`;
+                    i++;
+                }
+
+                let profileTitle = '';
+                 if (score <= 8) {
+                    profileTitle = 'Seme (Aspiring & Aware)';
+                } else if (score <= 16) {
+                    profileTitle = 'Albero (Acting & Awesome)';
+                } else {
+                    profileTitle = 'Foresta (Inspiring)';
+                }
+                body += `Profilo di Maturità Stimato: ${profileTitle}\n`;
+                body += `Email del contatto: ${email}\n`;
+                
+                const bodyEncoded = encodeURIComponent(body);
+                window.location.href = `mailto:info@kodamahq.it?subject=${subject}&body=${bodyEncoded}`;
+
                 leadForm.classList.add('hidden');
                 leadSuccess.classList.remove('hidden');
             });
 
             // --- LOGICA MENU MOBILE E HEADER FISSO ---
             const mainNav = document.getElementById('main-nav');
+            const navBrand = document.getElementById('nav-brand');
+            const mainTitle = document.getElementById('main-title');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navBrand.classList.add('opacity-0');
+                        navBrand.classList.remove('opacity-100');
+                    } else {
+                        navBrand.classList.remove('opacity-0');
+                        navBrand.classList.add('opacity-100');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            if (mainTitle) {
+                observer.observe(mainTitle);
+            }
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     mainNav.classList.add('scrolled');
